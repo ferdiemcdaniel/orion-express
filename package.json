@@ -2,6 +2,10 @@
   "name": "orion-express",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "author": "Ferdinand McDaniel <imcdanielamano@gmail.com>",
   "license": "MIT",
   "dependencies": {
