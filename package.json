@@ -9,6 +9,11 @@
   "author": "Ferdinand McDaniel <imcdanielamano@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.4"
+    "consolidate": "^0.14.5",
+    "express": "^4.15.4",
+    "handlebars": "^4.0.10",
+    "jade": "^1.11.0",
+    "lodash": "^4.17.4",
+    "nodemon": "^1.12.1"
   }
 }
