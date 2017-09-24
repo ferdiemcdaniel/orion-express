@@ -1,41 +1,38 @@
-var express = require('express');
-var app = express();
+var express = require('express')
+var app = express()
 
-var fs = require('fs');
-var _ = require('lodash');
-var engines = require('consolidate');
-var users = [];
+var fs = require('fs')
+var _ = require('lodash')
+var engines = require('consolidate')
 
-fs.readFile('users.json', {encoding: 'utf8'}, (err, data) => {
-    if (err) throw err;
+var users = []
 
-    JSON.parse(data).forEach(user => {
-        user.name.full = _.startCase(user.name.first + ' ' + user.name.last);
-        users.push(user);
-    });
-});
+fs.readFile('users.json', {encoding: 'utf8'}, function (err, data) {
+  if (err) throw err
 
-app.set('views', './views');
-app.set('view engine', 'hbs');
-app.engine('hbs', engines.handlebars);
+  JSON.parse(data).forEach(function (user) {
+    user.name.full = _.startCase(user.name.first + ' ' + user.name.last)
+    users.push(user)
+  })
 
-app.get('/', (req, res) => {
-    res.render('index', {users: users});
-});
+})
 
-app.get(/big.*/, (req, res, next) => {
-    next();
-});
+app.engine('hbs', engines.handlebars)
 
-app.get('/:username', (req, res) => {
-    let username = req.params.username;
-    res.send(username);
-});
+app.set('views', './views')
+app.set('view engine', 'hbs')
 
-app.get('/yo', (request, result) => {
-    result.send('Yo!');
-});
+app.use('/profilepics', express.static('images'))
 
-var server = app.listen(3000, () => {
-    console.log('Server running at http://localhost:' + server.address().port);
-});
+app.get('/', function (req, res) {
+  res.render('index', {users: users})
+})
+
+app.get('/:username', function (req, res) {
+  var username = req.params.username
+  res.render('user', {username: username})
+})
+
+var server = app.listen(3000, function () {
+  console.log('Server running at http://localhost:' + server.address().port)
+})
