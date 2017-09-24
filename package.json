@@ -1,8 +1,7 @@
 {
-    "name":
-        "NodeJS express implementation egghead tutorials by Ben Clinkinbeard",
+    "name": "orion-express",
     "version": "1.0.0",
-    "description": "Egghead - Getting Started with Express",
+    "description": "NodeJS express implementation egghead tutorial by Ben Clinkinbeard",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
@@ -12,7 +11,7 @@
     "author": "Ferdinand Amano imcdanielamano@gmail.com",
     "license": "ISC",
     "dependencies": {
-        "body-parser": "^1.13.2",
+        "body-parser": "^1.18.2",
         "consolidate": "^0.13.1",
         "express": "^4.13.1",
         "handlebars": "^3.0.3",
